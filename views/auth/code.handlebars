@@ -1,0 +1,9 @@
+<h2>Código enviado para {{email}}</h2>
+
+<form action="/auth/code" method="post">
+<input type="hidden" name="email" id="email" value={{email}}>
+<input type="text" placeholder="Digite o código" name="token" required>
+<input type="password" name="password" id="password" placeholder="Nova Senha" required>
+<input type="password" name="password2" id="password2" placeholder="Repita a Senha" required>
+<button type="submit">Enviar</button>
+</form>
