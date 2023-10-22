@@ -1,56 +1,157 @@
-<h1>{{username}}</h1>
+<div
+  class="flex items-center justify-center h-screen bg-gradient-to-b from-red-200 via-purple-400 to-pink-300"
+>
+  <div class="bg-white m-6 w-64 h-3/4 rounded-lg shadow-2xl">
+    <div
+      class="text-center h-64 rounded-tl-lg rounded-tr-lg"
+      style="background-image:url(/images/social-medias.jpg); background-size:cover;"
+    >
+      <!-- Used image: https://br.freepik.com/fotos-gratis/mao-segurando-o-conceito-de-midia-social-do-smartphone_38689791.htm#query=redes%20sociais&position=42&from_view=search&track=ais -->
+    </div>
+    <div class="text-center text-white bg-black p-2">
+      <h1>{{username}}</h1>
+    </div>
+    <div class="overflow-auto h-3/5 rounded-bl-lg rounded-br-lg">
+      {{#if instagram}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex"
+        >
+          <div class="w-4/5">
+            <p>Instagram</p>
+          </div>
 
-{{#if instagram}}
-  <a href={{instagram}} target="_blank">Instagram</a>
-{{else}}
-{{/if}}
+          <a href={{instagram}} target="_blank"><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
 
-{{#if youtube}}
-  <a href={{youtube}} target="_blank">Youtube</a>
-{{else}}
-{{/if}}
+      {{#if youtube}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex space-x-20"
+        >
+          <div class="w-4/5"><p>Youtube</p></div>
+          <a href={{youtube}} target="_blank"><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
 
-{{#if whatsapp}}
-  <a href="https://api.whatsapp.com/send?phone=55{{whatsapp}}&text=Ol%C3%A1!" target="_blank">WhatsApp</a>
-{{else}}
-{{/if}}
+      {{#if whatsapp}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex space-x-20"
+        >
+          <div class="w-4/5"><p>WhatsApp</p></div>
+          <a
+            href="https://api.whatsapp.com/send?phone=55{{whatsapp}}&text=Ol%C3%A1!"
+            target="_blank"
+          ><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
 
-{{#if facebook}}
-  <a href={{facebook}} target="_blank">Facebook</a>
-{{else}}
-{{/if}}
+      {{#if facebook}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex space-x-20"
+        >
+          <div class="w-4/5"><p>Facebook</p></div>
+          <a href={{facebook}} target="_blank"><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
 
-{{#if tiktok}}
-  <a href={{tiktok}} target="_blank">TikTok</a>
-{{else}}
-{{/if}}
+      {{#if tiktok}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex space-x-20"
+        >
+          <div class="w-4/5"><p>TikTok</p></div>
+          <a href={{tiktok}} target="_blank"><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
 
-{{#if linkedin}}
-  <a href={{linkedin}} target="_blank">LinkedIn</a>
-{{else}}
-{{/if}}
+      {{#if linkedin}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex space-x-20"
+        >
+          <div class="w-4/5"><p>LinkedIn</p></div>
+          <a href={{linkedin}} target="_blank"><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
 
-{{#if twitter}}
-  <a href={{twitter}} target="_blank">Twitter</a>
-{{else}}
-{{/if}}
+      {{#if twitter}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex space-x-20"
+        >
+          <div class="w-4/5"><p>Twitter</p></div>
+          <a href={{twitter}} target="_blank"><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
 
-{{#if vsco}}
-  <a href={{vsco}} target="_blank">VSCO</a>
-{{else}}
-{{/if}}
+      {{#if vsco}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex space-x-20"
+        >
+          <div class="w-4/5"><p>VSCO</p></div>
+          <a href={{vsco}} target="_blank"><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
 
-{{#if kwai}}
-  <a href={{kwai}} target="_blank">Kwai</a>
-{{else}}
-{{/if}}
+      {{#if kwai}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex space-x-20"
+        >
+          <div class="w-4/5"><p>Kwai</p></div>
+          <a href={{kwai}} target="_blank"><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
 
-{{#if pinterest}}
-  <a href={{pinterest}} target="_blank">Pinterest</a>
-{{else}}
-{{/if}}
+      {{#if pinterest}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex space-x-20"
+        >
+          <div class="w-4/5"><p>Pinterest</p></div>
+          <a href={{pinterest}} target="_blank"><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
 
-{{#if site}}
-  <a href={{site}} target="_blank">Site Pessoal</a>
-{{else}}
-{{/if}}
+      {{#if site}}
+        <div
+          class="w-full items-center border-b border-gray-300 bg-white text-black p-3 flex space-x-20"
+        >
+          <div class="w-4/5"><p>Site</p></div>
+          <a href={{site}} target="_blank"><button
+              class="border border-gray-300 hover:border-gray-400 px-3 py-1 rounded-sm text-sm"
+            >Acessar</button></a>
+        </div>
+      {{else}}
+      {{/if}}
+
+    </div>
+
+  </div>
+
+</div>

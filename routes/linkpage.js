@@ -79,6 +79,7 @@ router.get("/link/:page", async (req, res) => {
     pinterest: page.pinterest,
     site: page.site,
     username: username.username,
+    title: username.username,
   };
   res.render("linkpage", context);
 });
