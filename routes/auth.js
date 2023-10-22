@@ -9,8 +9,8 @@ const nodemailer = require("nodemailer");
 const uuid = require("uuid");
 require("dotenv").config();
 
-const userEmail = process.env.USER_EMAIL || "<E-mail>";
-const userPassword = process.env.USER_PASSWORD || "<Password>";
+const userEmail = process.env.USER_EMAIL || "<E-MAIL>";
+const userPassword = process.env.USER_PASSWORD || "<PASSWORD>";
 
 const transporter = nodemailer.createTransport({
   service: "Gmail",
@@ -128,7 +128,7 @@ router.post("/recovery", async (req, res) => {
 
     await transporter.sendMail(mailOptions);
     const context = {
-      title: "Recuperação de Conta",
+      title: "Nova Senha",
       email: email,
     };
     res.render("auth/code", context);

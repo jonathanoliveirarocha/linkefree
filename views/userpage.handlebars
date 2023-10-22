@@ -1,1 +1,12 @@
 <h1>Olá {{loggedUser}}<h1>
+
+{{#if pagelink}}
+    <div>
+        <a href="/linkpage/link/{{pagelink}}" target="_blank">Veja</a>
+        <a href="/linkpage/edit/{{pagelink}}"><button>Editar</button></a>
+        <a href="/linkpage/remove/{{pagelink}}"><button>Remover</button></a>
+    </div>
+{{else}}
+<a href="/linkpage/create"><button>Criar página Link</button></a>
+{{/if}}
+
