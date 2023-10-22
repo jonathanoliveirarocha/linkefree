@@ -3,7 +3,8 @@
 
 {{#if pagelink}}
     <div>
-        <a href="/linkpage/link/{{pagelink}}" target="_blank">Veja</a>
+        <a href="/linkpage/link/{{pagelink}}" id="linkToCopy" target="_blank">Veja</a>
+        <button id="btnCopy" onclick="copyLink()">Copiar</button>
         <a href="/linkpage/edit/{{pagelink}}"><button>Editar</button></a>
         <a href="/linkpage/remove/{{pagelink}}"><button>Remover</button></a>
     </div>
