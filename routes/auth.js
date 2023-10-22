@@ -181,4 +181,10 @@ router.post("/code", async (req, res) => {
   }
 });
 
+router.get("/logout", (req, res) => {
+  req.logout((err) => {
+      res.redirect("/")
+  })
+})
+
 module.exports = router;
