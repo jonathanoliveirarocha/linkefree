@@ -9,7 +9,10 @@ const uuid = require("uuid");
 const { loggedIn } = require("../helpers/loggedIn");
 
 router.get("/create", loggedIn, (req, res) => {
-  res.render("addlinkpage");
+  const context = {
+    title:"Criar",
+  }
+  res.render("addlinkpage", context);
 });
 
 router.post("/create", loggedIn, async (req, res) => {
@@ -104,6 +107,7 @@ router.get("/edit/:page", loggedIn, async (req, res) => {
     pinterest: page.pinterest,
     site: page.site,
     username: username.username,
+    title:"Edição"
   };
   res.render("editlinkpage", context);
 });
