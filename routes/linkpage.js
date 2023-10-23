@@ -10,8 +10,8 @@ const { loggedIn } = require("../helpers/loggedIn");
 
 router.get("/create", loggedIn, (req, res) => {
   const context = {
-    title:"Criar",
-  }
+    title: "Criar",
+  };
   res.render("addlinkpage", context);
 });
 
@@ -89,7 +89,7 @@ router.get("/link/:page", async (req, res) => {
 
 router.get("/edit/:page", loggedIn, async (req, res) => {
   const page = await LinkPage.findOne({ user: req.user });
-  if (!page) {
+  if (!page || page.link !== req.params.page) {
     return res.status(400).json({ message: "Página não encontrada!" });
   }
   const username = await User.findOne({ id: page.User });
@@ -107,14 +107,14 @@ router.get("/edit/:page", loggedIn, async (req, res) => {
     pinterest: page.pinterest,
     site: page.site,
     username: username.username,
-    title:"Edição"
+    title: "Edição",
   };
   res.render("editlinkpage", context);
 });
 
 router.post("/edit/:page", loggedIn, async (req, res) => {
   const page = await LinkPage.findOne({ user: req.user });
-  if (!page) {
+  if (!page || page.link !== req.params.page) {
     return res.status(400).json({ message: "Página não encontrada!" });
   }
   const {
