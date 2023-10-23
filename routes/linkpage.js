@@ -154,7 +154,7 @@ router.post("/edit/:page", loggedIn, async (req, res) => {
 
 router.get("/remove/:page", loggedIn, async (req, res) => {
   const page = await LinkPage.findOne({ user: req.user });
-  if (!page) {
+  if (!page || page.link !== req.params.page) {
     return res.status(400).json({ message: "Página não encontrada!" });
   }
 
