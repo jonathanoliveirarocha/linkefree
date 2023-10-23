@@ -1,14 +1,35 @@
-<h1>Olá {{loggedUser}}<h1>
-<a href="/auth/logout"><button>Sair</button></a>
-
-{{#if pagelink}}
+<div class="p-16 w-full">
+  {{#if pagelink}}
     <div>
-        <a href="/linkpage/link/{{pagelink}}" id="linkToCopy" target="_blank">Veja</a>
-        <button id="btnCopy" onclick="copyLink()">Copiar</button>
-        <a href="/linkpage/edit/{{pagelink}}"><button>Editar</button></a>
-        <a href="/linkpage/remove/{{pagelink}}"><button>Remover</button></a>
-    </div>
-{{else}}
-<a href="/linkpage/create"><button>Criar página Link</button></a>
-{{/if}}
 
+    </div>
+    <h2 class="pt-6">Sua página</h2>
+    <div class="rounded-lg shadow-lg mt-6 pt-8 pb-6 w-64">
+        <a
+          href="/linkpage/link/{{pagelink}}"
+          id="linkToCopy"
+          target="_blank" class="pl-3 text-blue-600 hover:underline"
+        >Veja</a>
+
+      <div class="flex w-full justify-between p-3 mt-6">
+        <button
+          id="btnCopy"
+          class="text-white bg-gray-400 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 text-center"
+          onclick="copyLink()"
+        >📋</button>
+        <a href="/linkpage/edit/{{pagelink}}"><button
+            class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+          >Editar</button></a>
+        <a href="/linkpage/remove/{{pagelink}}"><button
+            class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+          >Remover</button></a>
+      </div>
+
+    </div>
+  {{else}}
+    <h2>Você ainda não criou uma página</h2>
+    <a href="/linkpage/create"><button
+        class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+      >Criar</button></a>
+  {{/if}}
+</div>

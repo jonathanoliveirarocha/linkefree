@@ -8,7 +8,10 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-    
+  {{#if linkpage}}
+    {{else}}
+     {{>navbar}}
+    {{/if}}
     {{{body}}}
     {{#if error}}
   <h1 style="color: red;">{{error}}</h1>

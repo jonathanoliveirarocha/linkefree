@@ -1,0 +1,24 @@
+<header class="h-16 border-b border-gray-300 fixed w-full flex items-center px-6">
+  <nav class="flex items-center w-full justify-end">
+    {{#if loggedUser}}
+      <p
+        href="/auth/signup"
+        class="text-sm font-medium text-gray-900 hover:text-blue-600 px-3"
+      >{{loggedUser}}</p>
+      <a href="/auth/logout"><button
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-1 text-center "
+        >Sair</button></a>
+
+    {{else}}
+      <a href="/auth/login"><button
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-1 text-center "
+        >Entrar</button></a>
+      <a
+        href="/auth/signup"
+        class="text-sm font-medium text-gray-900 hover:text-blue-600 px-3"
+      >Cadastrar</a>
+
+    {{/if}}
+
+  </nav>
+</header>

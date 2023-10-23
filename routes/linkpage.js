@@ -8,9 +8,14 @@ const LinkPage = mongoose.model("LinkPage");
 const uuid = require("uuid");
 const { loggedIn } = require("../helpers/loggedIn");
 
-router.get("/create", loggedIn, (req, res) => {
+router.get("/create", loggedIn, async (req, res) => {
+  const user = await User.findById(req.user);
+  if (!user) {
+    return res.status(400).json({ message: "Usuário não encontrado!" });
+  }
   const context = {
     title: "Criar",
+    loggedUser: user.username,
   };
   res.render("addlinkpage", context);
 });
@@ -83,6 +88,7 @@ router.get("/link/:page", async (req, res) => {
     site: page.site,
     username: username.username,
     title: username.username,
+    linkpage: true,
   };
   res.render("linkpage", context);
 });
@@ -106,7 +112,7 @@ router.get("/edit/:page", loggedIn, async (req, res) => {
     kwai: page.kwai,
     pinterest: page.pinterest,
     site: page.site,
-    username: username.username,
+    loggedUser: username.username,
     title: "Edição",
   };
   res.render("editlinkpage", context);
