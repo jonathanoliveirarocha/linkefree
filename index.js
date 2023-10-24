@@ -13,7 +13,7 @@ require("./config/auth")(passport);
 const auth = require("./routes/auth");
 const linkpage = require("./routes/linkpage");
 const cors = require("cors");
-require('dotenv').config();
+require("dotenv").config();
 
 app.engine("handlebars", handlebars.engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 
 app.use(
   session({
-    secret: process.env.SESSION_KEY || '<SECRET-KEY>',
+    secret: process.env.SESSION_KEY || "<SECRET-KEY>",
     resave: false,
     saveUninitialized: false,
   })
@@ -53,23 +53,21 @@ app.get("/", (req, res) => {
 
 app.get("/userpage", loggedIn, async (req, res) => {
   const user = await User.findById(req.user);
-  const page = await LinkPage.findOne({user:req.user});
-  let pagelink ='';
-  if(page){
-    pagelink = page.link
+  const page = await LinkPage.findOne({ user: req.user });
+  let pagelink = "";
+  if (page) {
+    pagelink = page.link;
   }
   const context = {
     title: "Página do Usuário",
     loggedUser: user.username,
-    pagelink:pagelink,
+    pagelink: pagelink,
   };
-  res.render("userpage", context);
+  res.render("auth/userpage", context);
 });
 
 app.use("/auth", auth);
 app.use("/linkpage", linkpage);
-
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

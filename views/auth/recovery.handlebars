@@ -1,6 +1,10 @@
 <div class="flex items-center justify-center h-screen">
-  <div class="flex w- rounded-lg shadow-2xl p-6">
+  <div class="flex rounded-lg shadow-2xl p-6">
     <form action="" method="post">
+      <label
+          for="email"
+          class="block mb-2 text-sm font-medium text-gray-900"
+        >E-mail:</label>
       <div
         data-element="fields"
         data-stacked="false"
@@ -9,7 +13,7 @@
         <div class="relative w-full mr-3 formkit-field">
           <label
             for="email"
-            class="hidden block mb-2 text-sm font-medium text-gray-900 "
+            class="hidden mb-2 text-sm font-medium text-gray-900"
           >Endereço de E-mail</label>
           <div
             class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none"
@@ -32,8 +36,8 @@
           <input
             name="email"
             id="email"
-            class="formkit-input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 "
-            aria-label="Email Address"
+            class="formkit-input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+            aria-label="email"
             placeholder="jonathan@gmail.com"
             required
             type="email"
@@ -41,14 +45,14 @@
         </div>
         <button
           type="submit"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center "
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center"
         >Enviar</button>
       </div>
       <div class="text-left">
-        <p class="text-sm font-medium text-gray-900 ">
+        <p class="text-sm font-medium text-gray-900">
           <a
             href="/auth/login"
-            class="text-blue-600 hover:underline "
+            class="text-blue-600 hover:underline"
           >Voltar</a></p>
       </div>
     </form>

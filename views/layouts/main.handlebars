@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linkefree - {{title}}</title>
-    <link href="/css/styles.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -13,11 +12,23 @@
      {{>navbar}}
     {{/if}}
     {{{body}}}
+    <div class="flex justify-center" id="msg_div">
     {{#if error}}
-  <h1 style="color: red;">{{error}}</h1>
-{{else}}
-{{/if}}
-{{>_msg}}
+     <div
+    class="bg-red-400 border border-red-600 fixed w-3/4 float-right top-0 max-w-md lg:max-w-2xl mt-20 text-center rounded-md"
+  >
+    <div
+      id="close_msg_button"
+      class="bg-red-700 w-3 h-3 rounded-full hover:bg-red-900 cursor-pointer float-right m-1"
+    >
+    </div>
+    <h1 class="m-4 text-red-800">{{error}}</h1>
+  </div>
+    {{else}}
+    {{/if}}
+    {{>_msg}}
+    </div>
+    
 <script src="/js/main.js"></script>
 </body>
 </html>

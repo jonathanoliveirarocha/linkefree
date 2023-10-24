@@ -30,7 +30,7 @@ router.get("/login", (req, res) => {
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/userpage",
-    failureRedirect: "/login",
+    failureRedirect: "/auth/login",
     failureFlash: true,
   })(req, res, next);
 });
@@ -60,7 +60,7 @@ router.post("/signup", async (req, res) => {
   }
   if (error.length > 0) {
     req.flash("error_msg", `${error[0]}`);
-    res.redirect("/signup");
+    res.redirect("/auth/signup");
   } else {
     try {
       const { username, email, password } = req.body;
@@ -183,8 +183,8 @@ router.post("/code", async (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.logout((err) => {
-      res.redirect("/")
-  })
-})
+    res.redirect("/");
+  });
+});
 
 module.exports = router;

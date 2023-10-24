@@ -17,7 +17,7 @@ router.get("/create", loggedIn, async (req, res) => {
     title: "Criar",
     loggedUser: user.username,
   };
-  res.render("addlinkpage", context);
+  res.render("linkpage/addlinkpage", context);
 });
 
 router.post("/create", loggedIn, async (req, res) => {
@@ -90,7 +90,7 @@ router.get("/link/:page", async (req, res) => {
     title: username.username,
     linkpage: true,
   };
-  res.render("linkpage", context);
+  res.render("linkpage/linkpage", context);
 });
 
 router.get("/edit/:page", loggedIn, async (req, res) => {
@@ -115,7 +115,7 @@ router.get("/edit/:page", loggedIn, async (req, res) => {
     loggedUser: username.username,
     title: "Edição",
   };
-  res.render("editlinkpage", context);
+  res.render("linkpage/editlinkpage", context);
 });
 
 router.post("/edit/:page", loggedIn, async (req, res) => {
@@ -153,8 +153,7 @@ router.post("/edit/:page", loggedIn, async (req, res) => {
       site: site,
     }
   );
-
-  req.flash("sucess_msg", "Editado com sucesso!");
+  req.flash("success_msg", "Editado com sucesso!");
   res.redirect("/userpage");
 });
 
@@ -166,7 +165,7 @@ router.get("/remove/:page", loggedIn, async (req, res) => {
 
   await LinkPage.deleteOne({ user: req.user });
 
-  req.flash("sucess_msg", "Excluído com sucesso!");
+  req.flash("success_msg", "Excluído com sucesso!");
   res.redirect("/userpage");
 });
 
