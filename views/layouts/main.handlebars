@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linkefree - {{title}}</title>
+    <link rel="shortcut icon" href="/images/page-icon.ico" type="image/x-icon">
+    <!-- Used Image: https://www.svgrepo.com/svg/525982/link-circle?edit=true -->
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
   {{#if linkpage}}
     {{else}}
      {{>navbar}}
+     {{>footer}}
     {{/if}}
     {{{body}}}
     <div class="flex justify-center" id="msg_div">
@@ -28,11 +31,6 @@
     {{/if}}
     {{>_msg}}
     </div>
-    {{#if linkpage}}
-    {{else}}
-     {{>footer}}
-    {{/if}}
-    
 <script src="/js/main.js"></script>
 </body>
 </html>
