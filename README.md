@@ -28,7 +28,7 @@ The program is a platform for creating a "Link in Bio" page. With it you can eas
 
 1. First, make sure you have <a href="https://nodejs.org/en">Node.js</a> installed on your machine.
 
-   > Program developed in version 18.12.1 on Node.js
+   > Program developed in version 18.12.1 on Node.js.
 
 2. To run the project, you need to create a file called ".env" in the root directory, paste the lines below into this file and replace the strings with their respective information:
 

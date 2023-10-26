@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-var temp = "";
+let temp = "";
 const dbPassword = process.env.DB_PASSWORD;
 
 if (process.env.NODE_ENV == "production") {
