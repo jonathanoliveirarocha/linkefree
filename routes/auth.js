@@ -21,9 +21,9 @@ const transporter = nodemailer.createTransport({
 });
 
 router.get("/login", (req, res) => {
-  if(req.user){
-    req.flash("success_msg", "Você já está conectado!")
-    res.redirect("/userpage")
+  if (req.user) {
+    req.flash("success_msg", "Você já está conectado!");
+    res.redirect("/userpage");
   }
   const context = {
     title: "Login",
