@@ -3,6 +3,11 @@ module.exports = {
     if (req.isAuthenticated()) {
       return next();
     }
-    res.redirect("/");
+
+    req.flash(
+      "error_msg",
+      "Você precisa estar conectado para acessar essa página!"
+    );
+    res.redirect("/auth/login");
   },
 };

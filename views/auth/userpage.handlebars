@@ -1,16 +1,13 @@
 <div class="p-16 w-full">
   {{#if pagelink}}
-    <div>
-
-    </div>
     <h2 class="mt-6">Sua página</h2>
     <div class="rounded-lg shadow-lg mt-6 pt-8 pb-6 w-64">
-        <a
-          href="/linkpage/link/{{pagelink}}"
-          id="linkToCopy"
-          target="_blank" class="pl-3 text-blue-600 hover:underline"
-        >Veja</a>
-
+      <a
+        href="/linkpage/link/{{pagelink}}"
+        id="linkToCopy"
+        target="_blank"
+        class="pl-3 text-blue-600 hover:underline"
+      >Veja</a>
       <div class="flex w-full justify-between p-3 mt-6">
         <button
           id="btnCopy"
@@ -24,7 +21,6 @@
             class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
           >Remover</button></a>
       </div>
-
     </div>
   {{else}}
     <h2 class="mt-6">Você ainda não criou uma página</h2>

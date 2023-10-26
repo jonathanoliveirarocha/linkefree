@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-require('dotenv').config();
+require("dotenv").config();
 
 var temp = "";
 const dbPassword = process.env.DB_PASSWORD;

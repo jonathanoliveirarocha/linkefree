@@ -114,7 +114,8 @@ router.post("/recovery", async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "E-mail não encontrado." });
+      req.flash("error_msg", "E-mail não encontrado!");
+      return res.redirect("/auth/recovery");
     }
 
     const token = uuid.v4().substring(0, 6);

@@ -69,6 +69,13 @@ app.get("/userpage", loggedIn, async (req, res) => {
 app.use("/auth", auth);
 app.use("/linkpage", linkpage);
 
+app.use((req, res, next) => {
+  const context = {
+    linkpage: true,
+  };
+  res.render("notfound", context);
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server on at http://localhost:${PORT}`);

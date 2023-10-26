@@ -11,7 +11,8 @@ const { loggedIn } = require("../helpers/loggedIn");
 router.get("/create", loggedIn, async (req, res) => {
   const user = await User.findById(req.user);
   if (!user) {
-    return res.status(400).json({ message: "Usuário não encontrado!" });
+    req.flash("error_msg", "Usuário não encontrado!");
+    return res.redirect("/userpage");
   }
   const context = {
     title: "Criar",
@@ -70,7 +71,8 @@ router.post("/create", loggedIn, async (req, res) => {
 router.get("/link/:page", async (req, res) => {
   const page = await LinkPage.findOne({ link: req.params.page });
   if (!page) {
-    return res.status(400).json({ message: "Página não encontrada!" });
+    req.flash("error_msg", "Página não encontrada!");
+    return res.redirect("/");
   }
   const username = await User.findOne({ id: page.User });
 
@@ -96,7 +98,8 @@ router.get("/link/:page", async (req, res) => {
 router.get("/edit/:page", loggedIn, async (req, res) => {
   const page = await LinkPage.findOne({ user: req.user });
   if (!page || page.link !== req.params.page) {
-    return res.status(400).json({ message: "Página não encontrada!" });
+    req.flash("error_msg", "Página não encontrada!");
+    return res.redirect("/userpage");
   }
   const username = await User.findOne({ id: page.User });
 
@@ -121,7 +124,8 @@ router.get("/edit/:page", loggedIn, async (req, res) => {
 router.post("/edit/:page", loggedIn, async (req, res) => {
   const page = await LinkPage.findOne({ user: req.user });
   if (!page || page.link !== req.params.page) {
-    return res.status(400).json({ message: "Página não encontrada!" });
+    req.flash("error_msg", "Página não encontrada!");
+    return res.redirect("/userpage");
   }
   const {
     instagram,
