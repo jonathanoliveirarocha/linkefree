@@ -47,13 +47,13 @@ The program is a platform for creating a "Link in Bio" page. With it you can eas
    npm install
    ```
 
-4. Build the application's styling Tailwind CSS file
+4. Build the application's styling Tailwind CSS file:
 
    ```bash
    npx tailwindcss-cli@latest build -o public/css/style.css
    ```
 
-5. Now, just run the <a href="app.js">main</a> file with the following command :
+5. Now, just run the <a href="app.js">main</a> file with the following command:
 
    ```bash
    node index.js
