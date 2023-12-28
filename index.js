@@ -12,6 +12,7 @@ const main = require("./src/routes/main");
 const auth = require("./src/routes/auth");
 const linkpage = require("./src/routes/linkpage");
 require("dotenv").config();
+require("./src/helpers/loggedIn");
 
 const PORT = process.env.PORT | 8000;
 

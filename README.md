@@ -1,8 +1,16 @@
-## Linkefree
+# Linkefree
 
 **Accessible project link: <a href="https://linkefree.onrender.com/">Linkefree</a>**
 
-### What it is :
+## Summary
+
+1. [What it is](#what-it-is)
+2. [Folders](#folders)
+3. [Running the application locally](#running-the-application-locally)
+4. [Preview](#preview)
+
+## What it is
+
 The program is a platform for creating a "Link in Bio" page. With it you can easily create your own page, with links to different social media. The site has a registration and login system, password recovery and is completely responsive to different screen sizes, developed entirely with <a href="https://tailwindcss.com/">Tailwind CSS</a>.
 
 > Program developed in my native language (Portuguese).
@@ -22,9 +30,19 @@ The program is a platform for creating a "Link in Bio" page. With it you can eas
 - express-session
 - uuid
 - Nodemailer
-- CORS
 
-### Running the Application :
+## Folders
+
+- **/src/config:** Defines project settings
+- **/src/controllers:** Defines the request handling functions
+- **/src/helpers:** Defines recurring auxiliary functions
+- **/src/models:** Defines models for storage in the Database
+- **/src/routes:** Defines API routes
+- **/src/services:** Defines specific files for handling the Database
+- **/src/views:** Defines the application's view pages
+- **/src/public:** Defines the project's static files
+
+## Running the application locally
 
 1. First, make sure you have <a href="https://nodejs.org/en">Node.js</a> installed on your machine.
 
@@ -32,34 +50,18 @@ The program is a platform for creating a "Link in Bio" page. With it you can eas
 
 2. To run the project, you need to create a file called ".env" in the root directory, paste the lines below into this file and replace the strings with their respective information:
 
-    ```bash
-        DB_PASSWORD='<YOUR-MONGODB-DATABASE-URI>'
-        USER_EMAIL="<EMAIL-TO-SEND-THE-PASSWORD-RECOVERY-CODE>"
-        USER_PASSWORD="<ACCOUNT-PASSWORD>"
-        SESSION_KEY="<SECRET-KEY-FOR-SESSION>"
-    ```
-
-    > ACCOUNT-PASSWORD: You need to <a href="https://myaccount.google.com/apppasswords">generate</a> a password to access the API.
-
-3. Then install the project <a href="./package.json">requirements</a> with the command in the terminal:
-
    ```bash
-   npm install
+       DB_PASSWORD='<YOUR-MONGODB-DATABASE-URI>'
+       USER_EMAIL="<EMAIL-TO-SEND-THE-PASSWORD-RECOVERY-CODE>"
+       USER_PASSWORD="<ACCOUNT-PASSWORD>"
+       SESSION_KEY="<SECRET-KEY-FOR-SESSION>"
    ```
 
-4. Build the application's styling Tailwind CSS file:
+   > ACCOUNT-PASSWORD: You need to <a href="https://myaccount.google.com/apppasswords">generate</a> a password to access the API.
 
-   ```bash
-   npx tailwindcss-cli@latest build -o public/css/style.css
-   ```
+3. Then run the “start.bat” file in the root directory.
 
-5. Now, just run the <a href="index.js">main</a> file with the following command:
-
-   ```bash
-   node index.js
-   ```
-
-### Preview :
+## Preview :
 
 #### Desktop
 
