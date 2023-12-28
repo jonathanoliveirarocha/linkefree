@@ -1,32 +1,34 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+const path = require("path");
 const handlebars = require("express-handlebars");
-const bodyParser = require("body-parser");
-const { loggedIn } = require("./helpers/loggedIn");
-const db = require("./config/db");
 const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
-const User = require("./models/User");
-const LinkPage = require("./models/LinkPage");
-require("./config/auth")(passport);
-const auth = require("./routes/auth");
-const linkpage = require("./routes/linkpage");
-const cors = require("cors");
+require("./src/config/db");
+require("./src/config/auth")(passport);
+const main = require("./src/routes/main");
+const auth = require("./src/routes/auth");
+const linkpage = require("./src/routes/linkpage");
 require("dotenv").config();
 
-app.engine("handlebars", handlebars.engine({ defaultLayout: "main" }));
+const PORT = process.env.PORT | 8000;
+
 app.set("view engine", "handlebars");
-app.use(express.static(__dirname + "/public"));
+app.engine("handlebars", handlebars.engine({ defaultLayout: "main" }));
+
+app.set("views", path.join(__dirname, "/src/views"));
+app.use(express.static(path.join(__dirname + "/src/public")));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
 app.use(
   session({
-    secret: process.env.SESSION_KEY || "<SECRET-KEY>",
+    secret: process.env.SESSION_KEY,
     resave: false,
     saveUninitialized: false,
   })
@@ -44,28 +46,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  const context = {
-    title: "Home",
-  };
-  res.render("home", context);
-});
-
-app.get("/userpage", loggedIn, async (req, res) => {
-  const user = await User.findById(req.user);
-  const page = await LinkPage.findOne({ user: req.user });
-  let pagelink = "";
-  if (page) {
-    pagelink = page.link;
-  }
-  const context = {
-    title: "Página do Usuário",
-    loggedUser: user.username,
-    pagelink: pagelink,
-  };
-  res.render("auth/userpage", context);
-});
-
+app.use("/", main);
 app.use("/auth", auth);
 app.use("/linkpage", linkpage);
 
@@ -76,7 +57,6 @@ app.use((req, res, next) => {
   res.render("notfound", context);
 });
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server on at http://localhost:${PORT}`);
 });
